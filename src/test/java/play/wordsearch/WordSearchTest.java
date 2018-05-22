@@ -19,4 +19,11 @@ public class WordSearchTest
 	{
 		WordSearch ws = new WordSearch("");
 	}
+	
+	@Test(expected = Exception.class)
+	public void whenSuppliedFileIsEmptyThrowError() throws Exception 
+	{
+		WordSearch ws = new WordSearch("\\empty.txt");
+	}
+	
 }
