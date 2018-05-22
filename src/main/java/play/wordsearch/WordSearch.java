@@ -17,7 +17,7 @@ public class WordSearch
 	
 	public WordSearch(String inputFileName) throws Exception
 	{
-		if (inputFileName == null)
+		if (inputFileName == null || inputFileName.trim().length() == 0)
 			throw new Exception();
 	}
 }

@@ -13,4 +13,10 @@ public class WordSearchTest
 	{
 		WordSearch ws = new WordSearch(null);
 	}
+	
+	@Test(expected = Exception.class)
+	public void whenEmptyFileNameIsSuppliedToWordSearchThrowError() throws Exception 
+	{
+		WordSearch ws = new WordSearch("");
+	}
 }
