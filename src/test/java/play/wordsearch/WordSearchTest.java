@@ -23,7 +23,7 @@ public class WordSearchTest
 	@Test(expected = Exception.class)
 	public void whenEmptyFileIsSuppliedToWordSearchThrowError() throws Exception 
 	{
-		WordSearch ws = new WordSearch("\\empty.txt");
+		WordSearch ws = new WordSearch("/empty.txt");
 	}
 
 
