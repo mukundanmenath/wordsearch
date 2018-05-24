@@ -10,10 +10,14 @@ import java.io.*;
  */
 public class WordSearch 
 {
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello from WordSearch!" );
-    }
+	private String[] wordsToSearch = null;
+	
+	private String[][] alphaGrid = null;
+	
+	public String[] getWordsToSearch()
+	{
+		return this.wordsToSearch;
+	}
 	
 	public WordSearch()
 	{
@@ -36,22 +40,25 @@ public class WordSearch
 				if (!searchWordsLine.matches("([A-Z]{2,15})+(,[A-Z]{2,15})*"))
 					throw new Exception("Search words are not formatted correctly");
 				
+				wordsToSearch = searchWordsLine.split(",");
+				
 				String firstRow = reader.readLine();
 				String[] firstRowElements = firstRow.split(",");
 				
 				if (firstRowElements.length < 2)
 					throw new Exception("The grid size should be at least 2");
 				
-				validateGridRow(firstRowElements);
+				alphaGrid = new String[firstRowElements.length][firstRowElements.length];
+				validateGridRowAndPopulateGrid(firstRowElements, 0);
 				
-				for (int i = 0; i < firstRowElements.length - 1; i++)
+				for (int i = 1; i < firstRowElements.length; i++)
 				{
 					String row = reader.readLine();
 					String[] rowElements = row.split(",");
 					if (rowElements.length != firstRowElements.length)
 						throw new Exception("Rows are of different lengths");
 					
-					validateGridRow(rowElements);
+					validateGridRowAndPopulateGrid(rowElements, i);
 				}
 			}
 			System.out.println(inputFileName + " Input file is valid");
@@ -62,12 +69,13 @@ public class WordSearch
 		}
 	}
 	
-	private void validateGridRow(String[] rowElements) throws Exception
+	private void validateGridRowAndPopulateGrid(String[] rowElements, int rowNumber) throws Exception
 	{
-		for (String alpha : rowElements)
+		for (int j = 0; j < rowElements.length; j++)
 		{
-			if (alpha.length() != 1)
+			if (rowElements[j].length() != 1)
 				throw new Exception("Grid has invalid element");
+			this.alphaGrid[rowNumber][j] = rowElements[j];
 		}
 	}
 }
