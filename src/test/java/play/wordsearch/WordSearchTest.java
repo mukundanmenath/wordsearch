@@ -27,8 +27,10 @@ public class WordSearchTest
 	}
 
 	@Test(expected = Exception.class)
-	public void whenNonEmptyInputFileIsNotValidThrowError() throws Exception 
+	public void whenInputFileSuppliedToWordSearchHasOnlyTheSearchWordsAndNoAlphaGridThrowError() throws Exception 
 	{
+		//first line of the input file: AB,AD,AC,AD
+		//second line of the input file: <empty>
 		WordSearch ws = new WordSearch("/file-with-no-grid.txt");
 	}
 }
