@@ -59,6 +59,8 @@ public class WordSearchTest
 		//second line of the input file: A,B
 		//third line of the input file: C,D
 		WordSearch ws = new WordSearch("/file-with-minimal-grid.txt");
+		String[][] alphaGrid = ws.getAlphaGrid();
+		assertEquals("alphaGrid is square matrix", alphaGrid[0].length, alphaGrid[1].length);
 	}
 	
 }

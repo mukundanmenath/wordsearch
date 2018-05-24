@@ -19,6 +19,11 @@ public class WordSearch
 		return this.wordsToSearch;
 	}
 	
+	public String[][] getAlphaGrid()
+	{
+		return this.alphaGrid;
+	}
+	
 	public WordSearch()
 	{
 	}
