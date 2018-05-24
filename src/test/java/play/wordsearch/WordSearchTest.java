@@ -42,5 +42,14 @@ public class WordSearchTest
 		//third line of the input file: <empty> [or C,]
 		WordSearch ws = new WordSearch("/file-with-incomplete-grid1.txt");
 	}
+
+	@Test
+	public void whenInputFileSuppliedToWordSearchIsMinimalAndGood() throws Exception 
+	{
+		//first line of the input file: AB,BA,CD,DC,AC,CA,BD,DB,AD,DA,CB,BC
+		//second line of the input file: A,B
+		//third line of the input file: C,D
+		WordSearch ws = new WordSearch("/file-with-minimal-grid.txt");
+	}
 	
 }

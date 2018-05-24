@@ -50,9 +50,10 @@ public class WordSearch
 						throw new Exception("Rows are of different lengths");
 				}
 			}
+			System.out.println(inputFileName + " Input file is valid");
 		} catch (Exception e)
 		{
-			System.out.println("Error is: " + e.getMessage());
+			System.out.println(inputFileName + " Error is: " + e.getMessage());
 			throw e;
 		}
 	}
