@@ -12,14 +12,14 @@ public class WordSearch
 {
 	private String[] wordsToSearch = null;
 	
-	private String[][] alphaGrid = null;
+	private char[][] alphaGrid = null;
 	
 	public String[] getWordsToSearch()
 	{
 		return this.wordsToSearch;
 	}
 	
-	public String[][] getAlphaGrid()
+	public char[][] getAlphaGrid()
 	{
 		return this.alphaGrid;
 	}
@@ -53,7 +53,7 @@ public class WordSearch
 				if (firstRowElements.length < 2)
 					throw new Exception("The grid size should be at least 2");
 				
-				alphaGrid = new String[firstRowElements.length][firstRowElements.length];
+				alphaGrid = new char[firstRowElements.length][firstRowElements.length];
 				validateGridRowAndPopulateGrid(firstRowElements, 0);
 				
 				for (int i = 1; i < firstRowElements.length; i++)
@@ -80,7 +80,7 @@ public class WordSearch
 		{
 			if (rowElements[j].length() != 1)
 				throw new Exception("Grid has invalid element");
-			this.alphaGrid[rowNumber][j] = rowElements[j];
+			this.alphaGrid[rowNumber][j] = rowElements[j].charAt(0);
 		}
 	}
 	
@@ -93,6 +93,7 @@ public class WordSearch
 	
 	private String searchOneWord(String word)
 	{
-		return "AB: (0,0),(0,1)";
+		return word + ": " + "(0,0),(0,1)";
+		
 	}
 }
