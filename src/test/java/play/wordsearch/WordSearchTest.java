@@ -43,6 +43,15 @@ public class WordSearchTest
 		WordSearch ws = new WordSearch("/file-with-incomplete-grid1.txt");
 	}
 
+	@Test(expected = Exception.class)
+	public void whenInputFileSuppliedToWordSearchHasSearchWordsAndElementsAreNotSingleLettersThrowError() throws Exception 
+	{
+		//first line of the input file: AB,BA,CD,DC,AC,CA,BD,DB,AD,DA,CB,BC
+		//second line of the input file: A,BB
+		//third line of the input file: C,DD
+		WordSearch ws = new WordSearch("/file-with-invalid-grid1.txt");
+	}
+
 	@Test
 	public void whenInputFileSuppliedToWordSearchIsMinimalAndGood() throws Exception 
 	{

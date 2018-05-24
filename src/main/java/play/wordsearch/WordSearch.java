@@ -41,6 +41,12 @@ public class WordSearch
 				
 				if (firstRowElements.length < 2)
 					throw new Exception("The grid size should be at least 2");
+				for (String alpha : firstRowElements)
+				{
+					System.out.print("[" + alpha + "]");
+					if (alpha.length() != 1)
+						throw new Exception("Grid has invalid elements");
+				}
 				
 				for (int i = 0; i < firstRowElements.length - 1; i++)
 				{
@@ -48,6 +54,12 @@ public class WordSearch
 					String[] rowElements = row.split(",");
 					if (rowElements.length != firstRowElements.length)
 						throw new Exception("Rows are of different lengths");
+					for (String alpha : rowElements)
+					{
+						System.out.print("[" + alpha + "]");
+						if (alpha.length() != 1)
+							throw new Exception("Grid has invalid elements");
+					}
 				}
 			}
 			System.out.println(inputFileName + " Input file is valid");
