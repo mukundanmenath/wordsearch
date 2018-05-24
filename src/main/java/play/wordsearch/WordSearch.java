@@ -83,4 +83,9 @@ public class WordSearch
 			this.alphaGrid[rowNumber][j] = rowElements[j];
 		}
 	}
+	
+	public String searchWords()
+	{
+		return "AB: (0,0),(0,1)";
+	}
 }

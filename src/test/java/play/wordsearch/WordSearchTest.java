@@ -55,12 +55,13 @@ public class WordSearchTest
 	@Test
 	public void whenInputFileSuppliedToWordSearchIsMinimalAndGood() throws Exception 
 	{
-		//first line of the input file: AB,BA,CD,DC,AC,CA,BD,DB,AD,DA,CB,BC
+		//first line of the input file: AB
 		//second line of the input file: A,B
 		//third line of the input file: C,D
 		WordSearch ws = new WordSearch("/file-with-minimal-grid.txt");
 		String[][] alphaGrid = ws.getAlphaGrid();
 		assertEquals("alphaGrid is square matrix", alphaGrid[0].length, alphaGrid[1].length);
+		assertEquals("found AB", "AB: (0,0),(0,1)", ws.searchWords());
 	}
 	
 }
