@@ -33,4 +33,14 @@ public class WordSearchTest
 		//second line of the input file: <empty>
 		WordSearch ws = new WordSearch("/file-with-no-grid.txt");
 	}
+
+	@Test(expected = Exception.class)
+	public void whenInputFileSuppliedToWordSearchHasSearchWordsAndIncompleteAlphaGridThrowError() throws Exception 
+	{
+		//first line of the input file: AB,AD,AC,AD
+		//second line of the input file: A [or A,B]
+		//third line of the input file: <empty> [or C,]
+		WordSearch ws = new WordSearch("/file-with-incomplete-grid1.txt");
+	}
+	
 }
