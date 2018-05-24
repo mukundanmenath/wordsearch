@@ -86,6 +86,13 @@ public class WordSearch
 	
 	public String searchWords()
 	{
+		//return "AB: (0,0),(0,1)";
+		String result = searchOneWord(wordsToSearch[0]);
+		return result;
+	}
+	
+	private String searchOneWord(String word)
+	{
 		return "AB: (0,0),(0,1)";
 	}
 }
