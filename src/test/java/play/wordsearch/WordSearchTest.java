@@ -29,6 +29,6 @@ public class WordSearchTest
 	@Test(expected = Exception.class)
 	public void whenNonEmptyInputFileIsNotValidThrowError() throws Exception 
 	{
-		WordSearch ws = new WordSearch("/invalid-file.txt");
+		WordSearch ws = new WordSearch("/file-with-no-grid.txt");
 	}
 }
