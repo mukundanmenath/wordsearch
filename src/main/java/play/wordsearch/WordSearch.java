@@ -100,6 +100,7 @@ public class WordSearch
 	
 	private String searchOneWord(String word)
 	{
+		System.out.println("searchOneWord: " + word);
 		//return word + ": " + "(0,0),(0,1)";
 		String output = word + ": ";
 		char[] searchWordArr = word.toCharArray();
@@ -183,6 +184,7 @@ public class WordSearch
 		boolean found = false;
 		if (row < 0 || row >= alphaGrid.length || col < 0 || col >= alphaGrid.length)
 			return found;
+		
 		for (int i = 1; i < searchWordArr.length; i++)
 			for (int j = row + 1; j < alphaGrid.length; j++)
 				if (searchWordArr[i] == alphaGrid[j][col])
