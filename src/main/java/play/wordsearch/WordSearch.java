@@ -135,6 +135,8 @@ public class WordSearch
 				return formatLocations(outputArr);
 			else if (matchRemainingNorthToSouth(searchWordArr, firstLetterX, firstLetterY, outputArr))
 				return formatLocations(outputArr);
+			else if (matchRemainingSouthToNorth(searchWordArr, firstLetterX, firstLetterY, outputArr))
+				return formatLocations(outputArr);
 		}
 		
 		return "";
@@ -187,6 +189,25 @@ public class WordSearch
 		
 		for (int i = 1; i < searchWordArr.length; i++)
 			for (int j = row + 1; j < alphaGrid.length; j++)
+				if (searchWordArr[i] == alphaGrid[j][col])
+				{
+					outputArr.add("(" + j + "," + col + ")");
+					found = true;
+					break;
+				}
+				else
+					return false;
+		return found;	
+	}
+
+	private boolean matchRemainingSouthToNorth(char[] searchWordArr, int row, int col, List<String> outputArr)
+	{
+		boolean found = false;
+		if (row < 0 || row >= alphaGrid.length || col < 0 || col >= alphaGrid.length)
+			return found;
+		
+		for (int i = 1; i < searchWordArr.length; i++)
+			for (int j = row -1; j >= 0; j--)
 				if (searchWordArr[i] == alphaGrid[j][col])
 				{
 					outputArr.add("(" + j + "," + col + ")");
