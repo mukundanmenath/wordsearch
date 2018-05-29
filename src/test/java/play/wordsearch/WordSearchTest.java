@@ -63,5 +63,4 @@ public class WordSearchTest
 		assertEquals("alphaGrid is square matrix", alphaGrid[0].length, alphaGrid[1].length);
 		assertEquals("found AB", "AB: (0,0),(0,1)", ws.searchWords());
 	}
-	
 }

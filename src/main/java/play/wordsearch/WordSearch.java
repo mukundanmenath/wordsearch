@@ -88,7 +88,13 @@ public class WordSearch
 	public String searchWords()
 	{
 		//return "AB: (0,0),(0,1)";
-		String result = searchOneWord(wordsToSearch[0]);
+		String result = "";
+		for (int i = 0; i < wordsToSearch.length; i++)
+		{
+			if (!result.equals("") && i < wordsToSearch.length - 1)
+				result += "\n";
+			result += searchOneWord(wordsToSearch[i]);
+		}
 		return result;
 	}
 	
@@ -131,7 +137,16 @@ public class WordSearch
 	
 	private boolean matchRemainingWestToEast(char[] searchWordArr, int row, int col, List<String> outputArr)
 	{
-		outputArr.add("(0,1)");
+		//outputArr.add("(0,1)");
+		//return true;
+		if (row < 0 || row >= alphaGrid.length || col < 0 || col >= alphaGrid.length)
+			return false;
+		for (int i = 1; i < searchWordArr.length; i++)
+			for (int j = col + 1; j < alphaGrid.length; j++)
+				if (searchWordArr[i] == alphaGrid[row][j])
+					outputArr.add("(" + row + "," + j + ")");
+				else
+					return false;
 		return true;
 	}
 	
