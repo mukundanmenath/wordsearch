@@ -141,6 +141,8 @@ public class WordSearch
 				return formatLocations(outputArr);
 			else if (matchRemainingSouthEastToNorthWest(searchWordArr, firstLetterX, firstLetterY, outputArr))
 				return formatLocations(outputArr);
+			else if (matchRemainingSouthWestToNorthEast(searchWordArr, firstLetterX, firstLetterY, outputArr))
+				return formatLocations(outputArr);
 		}
 		
 		return "";
@@ -162,7 +164,9 @@ public class WordSearch
 					break;
 				}
 				else
+				{
 					return false;
+				}
 		return found;
 	}
 	
@@ -180,7 +184,9 @@ public class WordSearch
 					break;
 				}
 				else
+				{
 					return false;
+				}
 		//outputArr.add("(0,0)");
 		return found;	
 	}
@@ -200,7 +206,9 @@ public class WordSearch
 					break;
 				}
 				else
+				{
 					return false;
+				}
 		return found;	
 	}
 
@@ -219,7 +227,9 @@ public class WordSearch
 					break;
 				}
 				else
+				{
 					return false;
+				}
 		return found;	
 	}
 
@@ -239,7 +249,10 @@ public class WordSearch
 						break;
 					}
 					else
-						return false;
+					{
+						found = false;
+						break;
+					}
 		return found;	
 	}
 
@@ -259,7 +272,32 @@ public class WordSearch
 						break;
 					}
 					else
-						return false;
+					{
+						found = false;
+						break;
+					}
+		return found;	
+	}
+
+	private boolean matchRemainingSouthWestToNorthEast(char[] searchWordArr, int row, int col, List<String> outputArr)
+	{
+		boolean found = false;
+		if (row < 0 || row >= alphaGrid.length || col < 0 || col >= alphaGrid.length)
+			return found;
+		for (int i = 1; i < searchWordArr.length; i++)
+			for (int j = row - 1; j >= 0; j--)
+				for (int k = col + 1; k < alphaGrid.length; k--)
+					if (searchWordArr[i] == alphaGrid[j][k])
+					{
+						outputArr.add("(" + j + "," + k + ")");
+						found = true;
+						break;
+					}
+					else
+					{
+						found = false;
+						break;
+					}
 		return found;	
 	}
 
