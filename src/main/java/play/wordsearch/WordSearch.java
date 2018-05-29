@@ -104,7 +104,20 @@ public class WordSearch
 	private String searchInTheGrid(char[] searchWordArr)
 	{
 		List<String> outputArr = new ArrayList<String>();
-		outputArr.add("(0,0)");
+		//outputArr.add("(0,0)");
+		int firstLetterX, firstLetterY = 0;
+		for (int i = 0; i < alphaGrid.length; i++)
+		{
+			for (int j = 0; j < alphaGrid.length; j++)
+			{
+				if (searchWordArr[0] == alphaGrid[i][j])
+				{
+					firstLetterX = i;
+					firstLetterY = j;
+					outputArr.add("(" + firstLetterX + "," + firstLetterY + ")");
+				}
+			}
+		}
 		outputArr.add("(0,1)");
 			
 		String outputStr = null;
