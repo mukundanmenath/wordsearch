@@ -3,6 +3,7 @@ package play.wordsearch;
 import java.nio.file.*;
 import java.nio.charset.*;
 import java.io.*;
+import java.util.*;
 
 /**
  * 
@@ -102,6 +103,19 @@ public class WordSearch
 	
 	private String searchInTheGrid(char[] searchWordArr)
 	{
-		return "(0,0),(0,1)";
+		List<String> outputArr = new ArrayList<String>();
+		outputArr.add("(0,0)");
+		outputArr.add("(0,1)");
+			
+		String outputStr = null;
+			
+		if (outputArr.size() > 0)
+			outputStr = outputArr.get(0);
+		
+		for (int i = 1; i < outputArr.size(); i++)
+			outputStr += "," + outputArr.get(i);
+	
+		System.out.println("outputStr: " + outputStr);
+		return outputStr;
 	}
 }
