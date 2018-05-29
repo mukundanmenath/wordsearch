@@ -105,7 +105,7 @@ public class WordSearch
 	{
 		List<String> outputArr = new ArrayList<String>();
 		//outputArr.add("(0,0)");
-		int firstLetterX, firstLetterY = 0;
+		int firstLetterX = 0, firstLetterY = 0;
 		for (int i = 0; i < alphaGrid.length; i++)
 		{
 			for (int j = 0; j < alphaGrid.length; j++)
@@ -118,8 +118,25 @@ public class WordSearch
 				}
 			}
 		}
+		
+		if (outputArr.size() > 0)
+		{
+			//outputArr.add("(0,1)");
+			if (matchRemainingWestToEast(searchWordArr, firstLetterX, firstLetterY, outputArr))
+				return formatLocations(outputArr);
+		}
+		
+		return "";
+	}
+	
+	private boolean matchRemainingWestToEast(char[] searchWordArr, int row, int col, List<String> outputArr)
+	{
 		outputArr.add("(0,1)");
-			
+		return true;
+	}
+	
+	private String formatLocations(List<String> outputArr)
+	{
 		String outputStr = null;
 			
 		if (outputArr.size() > 0)
