@@ -159,17 +159,21 @@ public class WordSearch
 	
 	private boolean matchRemainingEastToWest(char[] searchWordArr, int row, int col, List<String> outputArr)
 	{
-		/*if (row < 0 || row >= alphaGrid.length || col < 0 || col >= alphaGrid.length)
-			return false;
+		boolean found = false;
+		if (row < 0 || row >= alphaGrid.length || col < 0 || col >= alphaGrid.length)
+			return found;
 		for (int i = 1; i < searchWordArr.length; i++)
 			for (int j = col - 1; j >= 0; j--)
 				if (searchWordArr[i] == alphaGrid[row][j])
+				{
 					outputArr.add("(" + row + "," + j + ")");
+					found = true;
+					break;
+				}
 				else
 					return false;
-		*/
-		outputArr.add("(0,0)");
-		return true;	
+		//outputArr.add("(0,0)");
+		return found;	
 	}
 
 	private String formatLocations(List<String> outputArr)
