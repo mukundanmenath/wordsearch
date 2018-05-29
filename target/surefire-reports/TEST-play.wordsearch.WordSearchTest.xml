@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="0" time="0.05" errors="0" skipped="0" tests="12" name="play.wordsearch.WordSearchTest">
+<testsuite failures="0" time="0.05" errors="0" skipped="0" tests="13" name="play.wordsearch.WordSearchTest">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\JDK7\jre\bin"/>
@@ -67,11 +67,12 @@
   <testcase time="0" classname="play.wordsearch.WordSearchTest" name="whenInputFileSuppliedToWordSearchHasSearchWordsAndElementsAreNotSingleLettersThrowError"/>
   <testcase time="0" classname="play.wordsearch.WordSearchTest" name="whenNullFileNameIsSuppliedToWordSearchThrowError"/>
   <testcase time="0" classname="play.wordsearch.WordSearchTest" name="whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithSearchTwoWordsDown"/>
-  <testcase time="0.01" classname="play.wordsearch.WordSearchTest" name="whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithSearchOneWordAcrossReverse"/>
-  <testcase time="0" classname="play.wordsearch.WordSearchTest" name="whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithTwoWords"/>
+  <testcase time="0" classname="play.wordsearch.WordSearchTest" name="whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithSearchOneWordAcrossReverse"/>
+  <testcase time="0.01" classname="play.wordsearch.WordSearchTest" name="whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithTwoWords"/>
   <testcase time="0" classname="play.wordsearch.WordSearchTest" name="whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithSearchOneWordDown"/>
-  <testcase time="0.01" classname="play.wordsearch.WordSearchTest" name="whenEmptyFileNameIsSuppliedToWordSearchThrowError"/>
+  <testcase time="0" classname="play.wordsearch.WordSearchTest" name="whenEmptyFileNameIsSuppliedToWordSearchThrowError"/>
   <testcase time="0" classname="play.wordsearch.WordSearchTest" name="whenInputFileSuppliedToWordSearchIsMinimalAndGood"/>
+  <testcase time="0.01" classname="play.wordsearch.WordSearchTest" name="whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithSearchTwoWordsAcross"/>
   <testcase time="0" classname="play.wordsearch.WordSearchTest" name="whenEmptyFileIsSuppliedToWordSearchThrowError"/>
   <testcase time="0" classname="play.wordsearch.WordSearchTest" name="whenInputFileSuppliedToWordSearchHasSearchWordsAndIncompleteAlphaGridThrowError"/>
   <testcase time="0" classname="play.wordsearch.WordSearchTest" name="whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithSearchOneWordAcross"/>

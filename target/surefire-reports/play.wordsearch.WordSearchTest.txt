@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: play.wordsearch.WordSearchTest
 -------------------------------------------------------------------------------
-Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.1 sec
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.09 sec
