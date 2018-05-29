@@ -93,7 +93,15 @@ public class WordSearch
 	
 	private String searchOneWord(String word)
 	{
-		return word + ": " + "(0,0),(0,1)";
-		
+		//return word + ": " + "(0,0),(0,1)";
+		String output = word + ": ";
+		char[] searchWordArr = word.toCharArray();
+		String locations = searchInTheGrid(searchWordArr);
+		return output + locations;
+	}
+	
+	private String searchInTheGrid(char[] searchWordArr)
+	{
+		return "(0,0),(0,1)";
 	}
 }
