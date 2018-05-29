@@ -63,4 +63,17 @@ public class WordSearchTest
 		assertEquals("alphaGrid is square matrix", alphaGrid[0].length, alphaGrid[1].length);
 		assertEquals("found AB", "AB: (0,0),(0,1)", ws.searchWords());
 	}
+	
+	@Test
+	public void whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithTwoWords() throws Exception 
+	{
+		//first line of the input file: AB,BA
+		//second line of the input file: A,B
+		//third line of the input file: C,D
+		WordSearch ws = new WordSearch("/file-with-minimal-grid-two-search-words.txt");
+		char[][] alphaGrid = ws.getAlphaGrid();
+		assertEquals("alphaGrid is square matrix", alphaGrid[0].length, alphaGrid[1].length);
+		assertEquals("found AB,BA", "AB: (0,0),(0,1)\nBA: (0,1),(0,0)", ws.searchWords());
+	}
+
 }

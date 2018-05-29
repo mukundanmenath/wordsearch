@@ -91,7 +91,7 @@ public class WordSearch
 		String result = "";
 		for (int i = 0; i < wordsToSearch.length; i++)
 		{
-			if (!result.equals("") && i < wordsToSearch.length - 1)
+			if (i > 0 && i < wordsToSearch.length)
 				result += "\n";
 			result += searchOneWord(wordsToSearch[i]);
 		}
@@ -130,6 +130,8 @@ public class WordSearch
 			//outputArr.add("(0,1)");
 			if (matchRemainingWestToEast(searchWordArr, firstLetterX, firstLetterY, outputArr))
 				return formatLocations(outputArr);
+			else if (matchRemainingEastToWest(searchWordArr, firstLetterX, firstLetterY, outputArr))
+				return formatLocations(outputArr);
 		}
 		
 		return "";
@@ -139,17 +141,37 @@ public class WordSearch
 	{
 		//outputArr.add("(0,1)");
 		//return true;
+		boolean found = false;
 		if (row < 0 || row >= alphaGrid.length || col < 0 || col >= alphaGrid.length)
-			return false;
+			return found;
 		for (int i = 1; i < searchWordArr.length; i++)
 			for (int j = col + 1; j < alphaGrid.length; j++)
+				if (searchWordArr[i] == alphaGrid[row][j])
+				{
+					outputArr.add("(" + row + "," + j + ")");
+					found = true;
+					break;
+				}
+				else
+					return false;
+		return found;
+	}
+	
+	private boolean matchRemainingEastToWest(char[] searchWordArr, int row, int col, List<String> outputArr)
+	{
+		/*if (row < 0 || row >= alphaGrid.length || col < 0 || col >= alphaGrid.length)
+			return false;
+		for (int i = 1; i < searchWordArr.length; i++)
+			for (int j = col - 1; j >= 0; j--)
 				if (searchWordArr[i] == alphaGrid[row][j])
 					outputArr.add("(" + row + "," + j + ")");
 				else
 					return false;
-		return true;
+		*/
+		outputArr.add("(0,0)");
+		return true;	
 	}
-	
+
 	private String formatLocations(List<String> outputArr)
 	{
 		String outputStr = null;
