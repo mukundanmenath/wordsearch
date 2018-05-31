@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="0" time="0.125" errors="0" skipped="0" tests="18" name="play.wordsearch.WordSearchTest">
+<testsuite failures="0" time="0.16" errors="0" skipped="0" tests="21" name="play.wordsearch.WordSearchTest">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\JDK7\jre\bin"/>
@@ -63,22 +63,25 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase time="0.015" classname="play.wordsearch.WordSearchTest" name="whenInputFileSuppliedToWordSearchHasOnlyTheSearchWordsAndNoAlphaGridThrowError"/>
-  <testcase time="0" classname="play.wordsearch.WordSearchTest" name="whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithSearchOneWordNorthEastToSouthWest"/>
-  <testcase time="0" classname="play.wordsearch.WordSearchTest" name="whenInputFileSuppliedToWordSearchHasSearchWordsAndElementsAreNotSingleLettersThrowError"/>
-  <testcase time="0.032" classname="play.wordsearch.WordSearchTest" name="whenInputFileSuppliedToWordSearchIsGoodWithNonTrivialSearchWordsOne"/>
-  <testcase time="0" classname="play.wordsearch.WordSearchTest" name="whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithSearchOneWordSouthWestToNorthEast"/>
-  <testcase time="0" classname="play.wordsearch.WordSearchTest" name="whenNullFileNameIsSuppliedToWordSearchThrowError"/>
-  <testcase time="0" classname="play.wordsearch.WordSearchTest" name="whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithSearchTwoWordsDown"/>
-  <testcase time="0.015" classname="play.wordsearch.WordSearchTest" name="whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithSearchOneWordAcrossReverse"/>
-  <testcase time="0" classname="play.wordsearch.WordSearchTest" name="whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithTwoWords"/>
-  <testcase time="0" classname="play.wordsearch.WordSearchTest" name="whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithSearchOneWordDown"/>
-  <testcase time="0" classname="play.wordsearch.WordSearchTest" name="whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithSearchTwoWordsSouthWestToNorthEastAndReverse"/>
+  <testcase time="0.03" classname="play.wordsearch.WordSearchTest" name="whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithOneSearchWordFromEastToWestSucceeds"/>
+  <testcase time="0" classname="play.wordsearch.WordSearchTest" name="whenInputFileSuppliedToWordSearchHasOnlyTheSearchWordsAndNoAlphaGridThrowsException"/>
+  <testcase time="0" classname="play.wordsearch.WordSearchTest" name="whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithOneSearchWordFromSouthEastToNorthWestSucceeds"/>
+  <testcase time="0" classname="play.wordsearch.WordSearchTest" name="whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithTwoSearchWordsFromEastToWestSucceeds"/>
+  <testcase time="0.01" classname="play.wordsearch.WordSearchTest" name="whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithTwoSearchWordsFromSouthWestToNorthEastAndReverseSucceeds"/>
+  <testcase time="0" classname="play.wordsearch.WordSearchTest" name="whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithOneSearchWordFromWestToEastSucceeds"/>
+  <testcase time="0" classname="play.wordsearch.WordSearchTest" name="whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithOneSearchWordFromNorthToSouthSucceeds"/>
+  <testcase time="0.01" classname="play.wordsearch.WordSearchTest" name="whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithTwoSearchWordsFromWestToEastSucceeds"/>
+  <testcase time="0" classname="play.wordsearch.WordSearchTest" name="whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithTwoSearchWordsFromNorthWestToSouthEastOrReverseSucceeds"/>
+  <testcase time="0" classname="play.wordsearch.WordSearchTest" name="whenInputFileSuppliedToWordSearchHasSearchWordsAndElementsAreNotSingleLettersThrowsException"/>
+  <testcase time="0.04" classname="play.wordsearch.WordSearchTest" name="whenNullFileNameIsSuppliedToWordSearchThrowError"/>
+  <testcase time="0" classname="play.wordsearch.WordSearchTest" name="whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithOneSearchWordFromNorthWestToSouthEastSucceeds"/>
+  <testcase time="0.04" classname="play.wordsearch.WordSearchTest" name="whenInputFileSuppliedToWordSearchIsGoodWithNonTrivialSearchWordsSucceeds"/>
+  <testcase time="0" classname="play.wordsearch.WordSearchTest" name="whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithOneSearchWordFromSouthWestToNorthEastSucceeds"/>
+  <testcase time="0" classname="play.wordsearch.WordSearchTest" name="whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithTwoSearchWordsFromNorthToSouthOrReverseSucceeds"/>
+  <testcase time="0" classname="play.wordsearch.WordSearchTest" name="whenInputFileSuppliedToWordSearchHasSearchWordsAndIncompleteAlphaGridThrowsException"/>
   <testcase time="0" classname="play.wordsearch.WordSearchTest" name="whenEmptyFileNameIsSuppliedToWordSearchThrowError"/>
-  <testcase time="0.047" classname="play.wordsearch.WordSearchTest" name="whenInputFileSuppliedToWordSearchIsGoodWithNonTrivialSearchWords"/>
-  <testcase time="0" classname="play.wordsearch.WordSearchTest" name="whenInputFileSuppliedToWordSearchIsMinimalAndGood"/>
-  <testcase time="0.016" classname="play.wordsearch.WordSearchTest" name="whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithSearchTwoWordsAcross"/>
+  <testcase time="0.03" classname="play.wordsearch.WordSearchTest" name="whenAnotherInputFileSuppliedToWordSearchIsGoodWithNonTrivialSearchWordsSucceeds"/>
+  <testcase time="0" classname="play.wordsearch.WordSearchTest" name="whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithOneSearchWordFromSouthToNorthSucceeds"/>
   <testcase time="0" classname="play.wordsearch.WordSearchTest" name="whenEmptyFileIsSuppliedToWordSearchThrowError"/>
-  <testcase time="0" classname="play.wordsearch.WordSearchTest" name="whenInputFileSuppliedToWordSearchHasSearchWordsAndIncompleteAlphaGridThrowError"/>
-  <testcase time="0" classname="play.wordsearch.WordSearchTest" name="whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithSearchOneWordAcross"/>
+  <testcase time="0" classname="play.wordsearch.WordSearchTest" name="whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithOneSearchWordFromNorthEastToSouthWestSucceeds"/>
 </testsuite>

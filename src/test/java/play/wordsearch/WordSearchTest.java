@@ -27,7 +27,7 @@ public class WordSearchTest
 	}
 
 	@Test(expected = Exception.class)
-	public void whenInputFileSuppliedToWordSearchHasOnlyTheSearchWordsAndNoAlphaGridThrowError() throws Exception 
+	public void whenInputFileSuppliedToWordSearchHasOnlyTheSearchWordsAndNoAlphaGridThrowsException() throws Exception 
 	{
 		//first line of the input file: AB,AD,AC,AD
 		//second line of the input file: <empty>
@@ -35,7 +35,7 @@ public class WordSearchTest
 	}
 
 	@Test(expected = Exception.class)
-	public void whenInputFileSuppliedToWordSearchHasSearchWordsAndIncompleteAlphaGridThrowError() throws Exception 
+	public void whenInputFileSuppliedToWordSearchHasSearchWordsAndIncompleteAlphaGridThrowsException() throws Exception 
 	{
 		//first line of the input file: AB,AD,AC,AD
 		//second line of the input file: A [or A,B]
@@ -44,7 +44,7 @@ public class WordSearchTest
 	}
 
 	@Test(expected = Exception.class)
-	public void whenInputFileSuppliedToWordSearchHasSearchWordsAndElementsAreNotSingleLettersThrowError() throws Exception 
+	public void whenInputFileSuppliedToWordSearchHasSearchWordsAndElementsAreNotSingleLettersThrowsException() throws Exception 
 	{
 		//first line of the input file: AB,BA,CD,DC,AC,CA,BD,DB,AD,DA,CB,BC
 		//second line of the input file: A,BB
@@ -53,7 +53,7 @@ public class WordSearchTest
 	}
 
 	@Test
-	public void whenInputFileSuppliedToWordSearchIsMinimalAndGood() throws Exception 
+	public void whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithOneSearchWordFromWestToEastSucceeds() throws Exception 
 	{
 		//first line of the input file: AB
 		//second line of the input file: A,B
@@ -64,20 +64,44 @@ public class WordSearchTest
 		assertEquals("found AB", "AB: (0,0),(1,0)", ws.searchWords());
 	}
 	
- 	@Test
-	public void whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithTwoWords() throws Exception 
+	@Test
+	public void whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithOneSearchWordFromEastToWestSucceeds() throws Exception 
 	{
-		//first line of the input file: AB,BA
+		//first line of the input file: BA
+		//second line of the input file: A,B
+		//third line of the input file: C,D
+		WordSearch ws = new WordSearch("/file-with-minimal-grid-e-w.txt");
+		char[][] alphaGrid = ws.getAlphaGrid();
+		assertEquals("alphaGrid is square matrix", alphaGrid[0].length, alphaGrid[1].length);
+		assertEquals("found BA", "BA: (1,0),(0,0)", ws.searchWords());
+	}
+
+ 	@Test
+	public void whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithTwoSearchWordsFromWestToEastSucceeds() throws Exception 
+	{
+		//first line of the input file: AB,CD
 		//second line of the input file: A,B
 		//third line of the input file: C,D
 		WordSearch ws = new WordSearch("/file-with-minimal-grid-two-search-words.txt");
 		char[][] alphaGrid = ws.getAlphaGrid();
 		assertEquals("alphaGrid is square matrix", alphaGrid[0].length, alphaGrid[1].length);
-		assertEquals("found AB,BA", "AB: (0,0),(1,0)\nBA: (1,0),(0,0)", ws.searchWords());
+		assertEquals("found AB,CD", "AB: (0,0),(1,0)\nCD: (0,1),(1,1)", ws.searchWords());
+	}
+
+ 	@Test
+	public void whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithTwoSearchWordsFromEastToWestSucceeds() throws Exception 
+	{
+		//first line of the input file: BA,DC
+		//second line of the input file: A,B
+		//third line of the input file: C,D
+		WordSearch ws = new WordSearch("/file-with-minimal-grid-two-search-words-e-w.txt");
+		char[][] alphaGrid = ws.getAlphaGrid();
+		assertEquals("alphaGrid is square matrix", alphaGrid[0].length, alphaGrid[1].length);
+		assertEquals("found BA,DC", "BA: (1,0),(0,0)\nDC: (1,1),(0,1)", ws.searchWords());
 	}
 
 	@Test
-	public void whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithSearchOneWordDown() throws Exception 
+	public void whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithOneSearchWordFromNorthToSouthSucceeds() throws Exception 
 	{
 		//first line of the input file: AC
 		//second line of the input file: A,B
@@ -89,7 +113,19 @@ public class WordSearchTest
 	}
 	
 	@Test
-	public void whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithSearchTwoWordsDown() throws Exception 
+	public void whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithOneSearchWordFromSouthToNorthSucceeds() throws Exception 
+	{
+		//first line of the input file: CA
+		//second line of the input file: A,B
+		//third line of the input file: C,D
+		WordSearch ws = new WordSearch("/file-with-minimal-grid-search-s-n.txt");
+		char[][] alphaGrid = ws.getAlphaGrid();
+		assertEquals("alphaGrid is square matrix", alphaGrid[0].length, alphaGrid[1].length);
+		assertEquals("found CA", "CA: (0,1),(0,0)", ws.searchWords());
+	}
+
+	@Test
+	public void whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithTwoSearchWordsFromNorthToSouthOrReverseSucceeds() throws Exception 
 	{
 		//first line of the input file: AC,CA
 		//second line of the input file: A,B
@@ -101,7 +137,7 @@ public class WordSearchTest
 	}
 	
 	@Test
-	public void whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithSearchOneWordAcross() throws Exception 
+	public void whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithOneSearchWordFromNorthWestToSouthEastSucceeds() throws Exception 
 	{
 		//first line of the input file: AD
 		//second line of the input file: A,B
@@ -113,7 +149,7 @@ public class WordSearchTest
 	}
 	
 	@Test
-	public void whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithSearchOneWordAcrossReverse() throws Exception 
+	public void whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithOneSearchWordFromSouthEastToNorthWestSucceeds() throws Exception 
 	{
 		//first line of the input file: DA
 		//second line of the input file: A,B
@@ -125,7 +161,7 @@ public class WordSearchTest
 	}
 
 	@Test
-	public void whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithSearchTwoWordsAcross() throws Exception 
+	public void whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithTwoSearchWordsFromNorthWestToSouthEastOrReverseSucceeds() throws Exception 
 	{
 		//first line of the input file: AD,DA
 		//second line of the input file: A,B
@@ -137,7 +173,7 @@ public class WordSearchTest
 	}
 
 	@Test
-	public void whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithSearchOneWordSouthWestToNorthEast() throws Exception 
+	public void whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithOneSearchWordFromSouthWestToNorthEastSucceeds() throws Exception 
 	{
 		//first line of the input file: CB
 		//second line of the input file: A,B
@@ -149,7 +185,7 @@ public class WordSearchTest
 	}
 	
 	@Test
-	public void whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithSearchOneWordNorthEastToSouthWest() throws Exception 
+	public void whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithOneSearchWordFromNorthEastToSouthWestSucceeds() throws Exception 
 	{
 		//first line of the input file: BC
 		//second line of the input file: A,B
@@ -161,7 +197,7 @@ public class WordSearchTest
 	}
 
 	@Test
-	public void whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithSearchTwoWordsSouthWestToNorthEastAndReverse() throws Exception 
+	public void whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithTwoSearchWordsFromSouthWestToNorthEastAndReverseSucceeds() throws Exception 
 	{
 		//first line of the input file: CB,BC
 		//second line of the input file: A,B
@@ -173,7 +209,7 @@ public class WordSearchTest
 	}
 
 	@Test
-	public void whenInputFileSuppliedToWordSearchIsGoodWithNonTrivialSearchWords() throws Exception 
+	public void whenInputFileSuppliedToWordSearchIsGoodWithNonTrivialSearchWordsSucceeds() throws Exception 
 	{
 		WordSearch ws = new WordSearch("/sample-input-file.txt");
 		char[][] alphaGrid = ws.getAlphaGrid();
@@ -189,7 +225,7 @@ public class WordSearchTest
 	}
 
 	@Test
-	public void whenInputFileSuppliedToWordSearchIsGoodWithNonTrivialSearchWordsOne() throws Exception 
+	public void whenAnotherInputFileSuppliedToWordSearchIsGoodWithNonTrivialSearchWordsSucceeds() throws Exception 
 	{
 		WordSearch ws = new WordSearch("/sample-input-file1.txt");
 		char[][] alphaGrid = ws.getAlphaGrid();
