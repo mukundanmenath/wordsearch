@@ -195,6 +195,18 @@ public class WordSearchTest
 		assertEquals("alphaGrid is square matrix", alphaGrid[0].length, alphaGrid[1].length);
 		assertEquals("found BC", "BC: (1,0),(0,1)", ws.searchWords());
 	}
+	
+	@Test
+	public void whenInputFileSuppliedToWordSearchIs30x30GridAndWithLongSearchWordSucceeds() throws Exception 
+	{
+		//first line of the input file: THISHASMORETHANFIFTEENCHARS
+		WordSearch ws = new WordSearch("/file-with-30x30-grid-and-long-search-word.txt");
+		char[][] alphaGrid = ws.getAlphaGrid();
+		assertEquals("alphaGrid is square matrix", alphaGrid[0].length, alphaGrid[1].length);
+		assertEquals("found THISHASMORETHANFIFTEENCHARS", "THISHASMORETHANFIFTEENCHARS: " 
+					+ "(26,8),(25,8),(24,8),(23,8),(22,8),(21,8),(20,8),(19,8),(18,8),(17,8),(16,8),(15,8),(14,8),(13,8),(12,8),"
+					+ "(11,8),(10,8),(9,8),(8,8),(7,8),(6,8),(5,8),(4,8),(3,8),(2,8),(1,8),(0,8)", ws.searchWords());
+	}	
 
 	@Test
 	public void whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithAllPossibleSearchWordsSucceeds() throws Exception 

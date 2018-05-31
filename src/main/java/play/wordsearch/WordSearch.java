@@ -25,7 +25,7 @@ public class WordSearch
 		return this.alphaGrid;
 	}
 	
-	public void printGrid()
+	public void printAlphaGrid()
 	{
 		for (int i = 0; i < alphaGrid.length; i++)
 		{
@@ -47,15 +47,19 @@ public class WordSearch
 		{
 			if (inputFileName == null || inputFileName.trim().length() == 0)
 				throw new Exception("Invalid file name");
+			
 			Path path = Paths.get(inputFileName);
 			if (path.toFile().length() == 0)
 				throw new Exception("Empty file");
+			
 			try (BufferedReader reader = Files.newBufferedReader(path, Charset.forName("UTF-8"))) 
 			{
 				String searchWordsLine = reader.readLine();
 				if (searchWordsLine == null || searchWordsLine.trim().length() == 0)
 					throw new Exception("No search string found");
-				if (!searchWordsLine.matches("([A-Z]{2,15})+(,[A-Z]{2,15})*"))
+				
+				String wordPattern = "([A-Z]{2,})+(,[A-Z]{2,})*";
+				if (!searchWordsLine.matches(wordPattern))
 					throw new Exception("Search words are not formatted correctly");
 				
 				wordsToSearch = searchWordsLine.split(",");
@@ -85,7 +89,7 @@ public class WordSearch
 			System.out.println(inputFileName + " Error is: " + e.getMessage());
 			throw e;
 		}
-		printGrid();
+		printAlphaGrid();
 	}
 	
 	private void validateGridRowAndPopulateGrid(String[] rowElements, int rowNumber) throws Exception
