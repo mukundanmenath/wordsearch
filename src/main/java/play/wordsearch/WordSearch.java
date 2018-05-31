@@ -102,9 +102,20 @@ public class WordSearch
 		}
 	}
 	
+	/**
+	 * This is the method to search the alpha grid based on the search words
+	 * Returned result has the formatted coordinates for each search word
+	 * Sample result:
+	 * BONES: (0,6),(0,7),(0,8),(0,9),(0,10)
+	 * KHAN: (5,9),(5,8),(5,7),(5,6)
+	 * KIRK: (4,7),(3,7),(2,7),(1,7)
+	 * SCOTTY: (0,5),(1,5),(2,5),(3,5),(4,5),(5,5)
+	 * SPOCK: (2,1),(3,2),(4,3),(5,4),(6,5)
+	 * SULU: (3,3),(2,2),(1,1),(0,0)
+	 * UHURA: (4,0),(3,1),(2,2),(1,3),(0,4)
+	 */
 	public String searchWords()
 	{
-		//return "AB: (0,0),(1,0)";
 		String result = "";
 		for (int i = 0; i < wordsToSearch.length; i++)
 		{
@@ -118,17 +129,15 @@ public class WordSearch
 	private String searchOneWord(String word)
 	{
 		System.out.println("searchOneWord: " + word);
-		//return word + ": " + "(0,0),(0,1)";
 		String output = word + ": ";
 		char[] searchWordArr = word.toCharArray();
-		String locations = searchInTheGrid(searchWordArr);
+		String locations = searchOneWordInTheGrid(searchWordArr);
 		return output + locations;
 	}
 	
-	private String searchInTheGrid(char[] searchWordArr)
+	private String searchOneWordInTheGrid(char[] searchWordArr)
 	{
 		List<String> outputArr = new ArrayList<String>();
-		//outputArr.add("(0,0)");
 		int firstLetterRow = 0, firstLetterCol = 0;
 		for (int i = 0; i < alphaGrid.length; i++)
 		{
@@ -138,8 +147,8 @@ public class WordSearch
 				{
 					firstLetterRow = i;
 					firstLetterCol = j;
-					if (matchRemainingLetters(searchWordArr, firstLetterRow, firstLetterCol, outputArr))
-						return formatLocations(outputArr);
+					if (matchRemainingConsecutiveLetters(searchWordArr, firstLetterRow, firstLetterCol, outputArr))
+						return formatCollectedLocations(outputArr);
 					else
 					{
 						outputArr.clear();
@@ -151,29 +160,29 @@ public class WordSearch
 		return "";
 	}
 	
-	private boolean matchRemainingLetters(char[] searchWordArr, int firstLetterRow, int firstLetterCol, List<String> outputArr)
+	private boolean matchRemainingConsecutiveLetters(char[] searchWordArr, int firstLetterRow, int firstLetterCol, List<String> outputArr)
 	{
-		if (matchRemainingWestToEast(searchWordArr, firstLetterRow, firstLetterCol, outputArr))
+		if (matchRemainingConsecutiveLettersWestToEast(searchWordArr, firstLetterRow, firstLetterCol, outputArr))
 			return true;
-		else if (matchRemainingEastToWest(searchWordArr, firstLetterRow, firstLetterCol, outputArr))
+		else if (matchRemainingConsecutiveLettersEastToWest(searchWordArr, firstLetterRow, firstLetterCol, outputArr))
 			return true;
-		else if (matchRemainingNorthToSouth(searchWordArr, firstLetterRow, firstLetterCol, outputArr))
+		else if (matchRemainingConsecutiveLettersNorthToSouth(searchWordArr, firstLetterRow, firstLetterCol, outputArr))
 			return true;
-		else if (matchRemainingSouthToNorth(searchWordArr, firstLetterRow, firstLetterCol, outputArr))
+		else if (matchRemainingConsecutiveLettersSouthToNorth(searchWordArr, firstLetterRow, firstLetterCol, outputArr))
 			return true;
-		else if (matchRemainingNorthWestToSouthEast(searchWordArr, firstLetterRow, firstLetterCol, outputArr))
+		else if (matchRemainingConsecutiveLettersNorthWestToSouthEast(searchWordArr, firstLetterRow, firstLetterCol, outputArr))
 			return true;
-		else if (matchRemainingSouthEastToNorthWest(searchWordArr, firstLetterRow, firstLetterCol, outputArr))
+		else if (matchRemainingConsecutiveLettersSouthEastToNorthWest(searchWordArr, firstLetterRow, firstLetterCol, outputArr))
 			return true;
-		else if (matchRemainingSouthWestToNorthEast(searchWordArr, firstLetterRow, firstLetterCol, outputArr))
+		else if (matchRemainingConsecutiveLettersSouthWestToNorthEast(searchWordArr, firstLetterRow, firstLetterCol, outputArr))
 			return true;
-		else if (matchRemainingNorthEastToSouthWest(searchWordArr, firstLetterRow, firstLetterCol, outputArr))
+		else if (matchRemainingConsecutiveLettersNorthEastToSouthWest(searchWordArr, firstLetterRow, firstLetterCol, outputArr))
 			return true;
 		else
 			return false;
 	}
 	
-	private boolean matchRemainingWestToEast(char[] searchWordArr, int row, int col, List<String> outputArr)
+	private boolean matchRemainingConsecutiveLettersWestToEast(char[] searchWordArr, int row, int col, List<String> outputArr)
 	{
 		if (row < 0 || row >= alphaGrid.length || col < 0 || col >= alphaGrid.length)
 			return false;
@@ -194,7 +203,7 @@ public class WordSearch
 		return (outputArr.size() == searchWordArr.length);
 	}
 	
-	private boolean matchRemainingEastToWest(char[] searchWordArr, int row, int col, List<String> outputArr)
+	private boolean matchRemainingConsecutiveLettersEastToWest(char[] searchWordArr, int row, int col, List<String> outputArr)
 	{
 		if (row < 0 || row >= alphaGrid.length || col < 0 || col >= alphaGrid.length)
 			return false;
@@ -215,7 +224,7 @@ public class WordSearch
 		return (outputArr.size() == searchWordArr.length);
 	}
 
-	private boolean matchRemainingNorthToSouth(char[] searchWordArr, int row, int col, List<String> outputArr)
+	private boolean matchRemainingConsecutiveLettersNorthToSouth(char[] searchWordArr, int row, int col, List<String> outputArr)
 	{
 		if (row < 0 || row >= alphaGrid.length || col < 0 || col >= alphaGrid.length)
 			return false;
@@ -236,7 +245,7 @@ public class WordSearch
 		return (outputArr.size() == searchWordArr.length);
 	}
 
-	private boolean matchRemainingSouthToNorth(char[] searchWordArr, int row, int col, List<String> outputArr)
+	private boolean matchRemainingConsecutiveLettersSouthToNorth(char[] searchWordArr, int row, int col, List<String> outputArr)
 	{
 		if (row < 0 || row >= alphaGrid.length || col < 0 || col >= alphaGrid.length)
 			return false;
@@ -257,7 +266,7 @@ public class WordSearch
 		return (outputArr.size() == searchWordArr.length);
 	}
 
-	private boolean matchRemainingNorthWestToSouthEast(char[] searchWordArr, int row, int col, List<String> outputArr)
+	private boolean matchRemainingConsecutiveLettersNorthWestToSouthEast(char[] searchWordArr, int row, int col, List<String> outputArr)
 	{
 		if (row < 0 || row >= alphaGrid.length || col < 0 || col >= alphaGrid.length)
 			return false;
@@ -278,7 +287,7 @@ public class WordSearch
 		return (outputArr.size() == searchWordArr.length);
 	}
 
-	private boolean matchRemainingSouthEastToNorthWest(char[] searchWordArr, int row, int col, List<String> outputArr)
+	private boolean matchRemainingConsecutiveLettersSouthEastToNorthWest(char[] searchWordArr, int row, int col, List<String> outputArr)
 	{
 		if (row < 0 || row >= alphaGrid.length || col < 0 || col >= alphaGrid.length)
 			return false;
@@ -299,7 +308,7 @@ public class WordSearch
 		return (outputArr.size() == searchWordArr.length);
 	}
 
-	private boolean matchRemainingSouthWestToNorthEast(char[] searchWordArr, int row, int col, List<String> outputArr)
+	private boolean matchRemainingConsecutiveLettersSouthWestToNorthEast(char[] searchWordArr, int row, int col, List<String> outputArr)
 	{
 		if (row < 0 || row >= alphaGrid.length || col < 0 || col >= alphaGrid.length)
 			return false;
@@ -320,7 +329,7 @@ public class WordSearch
 		return (outputArr.size() == searchWordArr.length);
 	}
 
-	private boolean matchRemainingNorthEastToSouthWest(char[] searchWordArr, int row, int col, List<String> outputArr)
+	private boolean matchRemainingConsecutiveLettersNorthEastToSouthWest(char[] searchWordArr, int row, int col, List<String> outputArr)
 	{
 		if (row < 0 || row >= alphaGrid.length || col < 0 || col >= alphaGrid.length)
 			return false;
@@ -341,7 +350,7 @@ public class WordSearch
 		return (outputArr.size() == searchWordArr.length);
 	}
 
-	private String formatLocations(List<String> outputArr)
+	private String formatCollectedLocations(List<String> outputArr)
 	{
 		String outputStr = null;
 			
