@@ -166,22 +166,10 @@ public class WordSearchTest
 		//first line of the input file: DA
 		//second line of the input file: A,B
 		//third line of the input file: C,D
-		WordSearch ws = new WordSearch("/file-with-minimal-grid-search-one-word-across-reverse.txt");
+		WordSearch ws = new WordSearch("/file-with-minimal-grid-search-one-word-across-se-nw.txt");
 		char[][] alphaGrid = ws.getAlphaGrid();
 		assertEquals("alphaGrid is square matrix", alphaGrid[0].length, alphaGrid[1].length);
 		assertEquals("found DA", "DA: (1,1),(0,0)", ws.searchWords());
-	}
-
-	@Test
-	public void whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithTwoSearchWordsFromNorthWestToSouthEastOrReverseSucceeds() throws Exception 
-	{
-		//first line of the input file: AD,DA
-		//second line of the input file: A,B
-		//third line of the input file: C,D
-		WordSearch ws = new WordSearch("/file-with-minimal-grid-search-two-words-across.txt");
-		char[][] alphaGrid = ws.getAlphaGrid();
-		assertEquals("alphaGrid is square matrix", alphaGrid[0].length, alphaGrid[1].length);
-		assertEquals("found AD,DA", "AD: (0,0),(1,1)\nDA: (1,1),(0,0)", ws.searchWords());
 	}
 
 	@Test
@@ -209,15 +197,27 @@ public class WordSearchTest
 	}
 
 	@Test
-	public void whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithTwoSearchWordsFromSouthWestToNorthEastAndReverseSucceeds() throws Exception 
+	public void whenInputFileSuppliedToWordSearchIsMinimalAndGoodWithAllPossibleSearchWordsSucceeds() throws Exception 
 	{
-		//first line of the input file: CB,BC
+		//first line of the input file: AB,BA,CD,DC,AC,CA,BD,DB,AD,DA,CB,BC
 		//second line of the input file: A,B
 		//third line of the input file: C,D
-		WordSearch ws = new WordSearch("/file-with-minimal-grid-search-one-word-sw-ne-ne-sw.txt");
+		WordSearch ws = new WordSearch("/file-with-minimal-grid-search-all.txt");
 		char[][] alphaGrid = ws.getAlphaGrid();
 		assertEquals("alphaGrid is square matrix", alphaGrid[0].length, alphaGrid[1].length);
-		assertEquals("found CB,BC", "CB: (0,1),(1,0)\nBC: (1,0),(0,1)", ws.searchWords());
+		assertEquals("found AB,BA,CD,DC,AC,CA,BD,DB,AD,DA,CB,BC", 
+					"AB: (0,0),(1,0)\n" 
+				  + "BA: (1,0),(0,0)\n"
+				  + "CD: (0,1),(1,1)\n"
+				  + "DC: (1,1),(0,1)\n"
+				  + "AC: (0,0),(0,1)\n"
+				  + "CA: (0,1),(0,0)\n"
+				  + "BD: (1,0),(1,1)\n"
+				  + "DB: (1,1),(1,0)\n"
+				  + "AD: (0,0),(1,1)\n"
+				  + "DA: (1,1),(0,0)\n"
+				  + "CB: (0,1),(1,0)\n"
+				  + "BC: (1,0),(0,1)", ws.searchWords());
 	}
 
 	@Test
