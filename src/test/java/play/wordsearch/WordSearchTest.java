@@ -188,4 +188,17 @@ public class WordSearchTest
 			"UHURA: (4,0),(3,1),(2,2),(1,3),(0,4)", ws.searchWords());
 	}
 
+	@Test
+	public void whenInputFileSuppliedToWordSearchIsGoodWithNonTrivialSearchWordsOne() throws Exception 
+	{
+		WordSearch ws = new WordSearch("/sample-input-file1.txt");
+		char[][] alphaGrid = ws.getAlphaGrid();
+		assertEquals("alphaGrid is square matrix", alphaGrid[0].length, alphaGrid[1].length);
+		assertEquals("found", 
+			"LAMPE: (3,10),(4,10),(5,10),(6,10),(7,10)\n" +
+			"MENATH: (5,7),(5,6),(5,5),(5,4),(5,3),(5,2)\n" +
+			"MILLER: (0,13),(1,12),(2,11),(3,10),(4,9),(5,8)\n" +
+			"NANDA: (8,10),(8,11),(8,12),(8,13),(8,14)\n" +
+			"STALL: (0,0),(1,1),(2,2),(3,3),(4,4)", ws.searchWords());
+	}
 }
