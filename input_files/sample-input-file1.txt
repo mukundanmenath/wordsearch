@@ -1,0 +1,16 @@
+LAMPE,MENATH,MILLER,NANDA,STALL
+S,U,N,W,J,T,U,W,E,D,I,J,U,L,I
+A,T,C,S,C,F,G,K,V,S,W,L,M,Z,S
+H,Z,A,L,M,H,S,U,G,X,I,K,A,A,W
+M,D,V,L,D,T,Y,B,A,T,P,Z,F,V,O
+P,C,C,K,L,A,N,D,X,J,K,I,C,T,S
+I,M,P,P,V,N,Z,R,A,X,W,R,D,F,H
+T,Z,R,B,B,E,H,C,Q,W,T,R,J,O,G
+S,B,J,O,V,M,S,U,J,F,N,V,F,F,E
+X,Y,G,K,N,R,N,T,R,V,P,O,E,S,Z
+O,E,X,T,E,J,P,M,C,O,N,L,D,W,M
+W,A,Y,L,A,M,P,E,N,P,A,J,W,C,S
+W,Q,L,C,E,H,C,Q,A,X,M,W,X,W,T
+W,I,S,A,Q,Q,M,X,N,S,M,Z,S,T,D
+M,S,L,C,S,L,I,J,D,L,Z,P,E,K,D
+I,N,U,Z,V,Y,Y,N,A,X,J,G,D,O,V
