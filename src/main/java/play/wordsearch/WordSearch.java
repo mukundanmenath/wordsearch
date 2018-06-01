@@ -182,9 +182,14 @@ public class WordSearch
 			return false;
 	}
 	
+	private boolean isInvalidBounds(int row, int col)
+	{
+		return (row < 0 || row >= alphaGrid.length || col < 0 || col >= alphaGrid.length);
+	}
+	
 	private boolean matchRemainingConsecutiveLettersWestToEast(char[] searchWordArr, int row, int col, List<String> outputArr)
 	{
-		if (row < 0 || row >= alphaGrid.length || col < 0 || col >= alphaGrid.length)
+		if (isInvalidBounds(row, col))
 			return false;
 		
 		outputArr.clear();
@@ -205,7 +210,7 @@ public class WordSearch
 	
 	private boolean matchRemainingConsecutiveLettersEastToWest(char[] searchWordArr, int row, int col, List<String> outputArr)
 	{
-		if (row < 0 || row >= alphaGrid.length || col < 0 || col >= alphaGrid.length)
+		if (isInvalidBounds(row, col))
 			return false;
 		
 		outputArr.clear();
@@ -226,7 +231,7 @@ public class WordSearch
 
 	private boolean matchRemainingConsecutiveLettersNorthToSouth(char[] searchWordArr, int row, int col, List<String> outputArr)
 	{
-		if (row < 0 || row >= alphaGrid.length || col < 0 || col >= alphaGrid.length)
+		if (isInvalidBounds(row, col))
 			return false;
 		
 		outputArr.clear();
@@ -247,7 +252,7 @@ public class WordSearch
 
 	private boolean matchRemainingConsecutiveLettersSouthToNorth(char[] searchWordArr, int row, int col, List<String> outputArr)
 	{
-		if (row < 0 || row >= alphaGrid.length || col < 0 || col >= alphaGrid.length)
+		if (isInvalidBounds(row, col))
 			return false;
 		
 		outputArr.clear();
@@ -268,7 +273,7 @@ public class WordSearch
 
 	private boolean matchRemainingConsecutiveLettersNorthWestToSouthEast(char[] searchWordArr, int row, int col, List<String> outputArr)
 	{
-		if (row < 0 || row >= alphaGrid.length || col < 0 || col >= alphaGrid.length)
+		if (isInvalidBounds(row, col))
 			return false;
 		
 		outputArr.clear();
@@ -289,7 +294,7 @@ public class WordSearch
 
 	private boolean matchRemainingConsecutiveLettersSouthEastToNorthWest(char[] searchWordArr, int row, int col, List<String> outputArr)
 	{
-		if (row < 0 || row >= alphaGrid.length || col < 0 || col >= alphaGrid.length)
+		if (isInvalidBounds(row, col))
 			return false;
 		
 		outputArr.clear();
@@ -310,7 +315,7 @@ public class WordSearch
 
 	private boolean matchRemainingConsecutiveLettersSouthWestToNorthEast(char[] searchWordArr, int row, int col, List<String> outputArr)
 	{
-		if (row < 0 || row >= alphaGrid.length || col < 0 || col >= alphaGrid.length)
+		if (isInvalidBounds(row, col))
 			return false;
 		
 		outputArr.clear();
@@ -331,7 +336,7 @@ public class WordSearch
 
 	private boolean matchRemainingConsecutiveLettersNorthEastToSouthWest(char[] searchWordArr, int row, int col, List<String> outputArr)
 	{
-		if (row < 0 || row >= alphaGrid.length || col < 0 || col >= alphaGrid.length)
+		if (isInvalidBounds(row, col))
 			return false;
 		
 		outputArr.clear();
