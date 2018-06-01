@@ -45,7 +45,7 @@ Tests run: 22, Failures: 0, Errors: 0, Skipped: 0
 [INFO] ------------------------------------------------------------------------
 ```
 #
-## Authors
+## Author
 
 * **Mukundan Menath** - *TDD Work* - [mukundanmenath](https://github.com/mukundanmenath)
 
